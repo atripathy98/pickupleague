@@ -18,6 +18,8 @@
   "homepage": "https://github.com/atripathy98/pickupleague#readme",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "firebase-admin": "^6.1.0",
+    "request-promise": "^4.2.2",
     "uws": "^99.0.0"
   }
 }
