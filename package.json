@@ -1,0 +1,23 @@
+{
+  "name": "pickupleague",
+  "version": "1.0.0",
+  "description": "Pick-Up League of Legends application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atripathy98/pickupleague.git"
+  },
+  "author": "Animesh Tripathy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atripathy98/pickupleague/issues"
+  },
+  "homepage": "https://github.com/atripathy98/pickupleague#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "uws": "^99.0.0"
+  }
+}
