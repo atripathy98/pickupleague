@@ -1,1 +1,1 @@
-web: node app.js
+worker: python bot.py
