@@ -71,18 +71,18 @@ def register(userid, args):
 	# Collect ranked data for player if any
 	ranked_info = riotapi.get_ranked_data_by_summoner(account_data["id"])
 	if ranked_info["success"]:
-		ranked_data = ranked_info["data"][0]
-		for queue in ranked_data:
-			datum = ranked_data[queue]
+		ranked_data = ranked_info["data"]
+		for ranked_queue in ranked_data:
 			# Only process queue if either solo or flex
-			if queue != "RANKED_FLEX_SR" or queue != "RANKED_SOLO_5x5":
+			queue = ranked_queue["queueType"]
+			if queue != "RANKED_FLEX_SR" and queue != "RANKED_SOLO_5x5":
 				continue
 			hidden_info[queue] = {}
-			hidden_info[queue]["tier"] = datum["tier"]
-			hidden_info[queue]["rank"] = datum["rank"]
-			hidden_info[queue]["wins"] = datum["wins"]
-			hidden_info[queue]["losses"] = datum["losses"]
-			hidden_info[queue]["mmr"] = mmr_data[datum["tier"]][datum["rank"]] + round(60.0*(datum["leaguePoints"]/100.0))
+			hidden_info[queue]["tier"] = ranked_queue["tier"]
+			hidden_info[queue]["rank"] = ranked_queue["rank"]
+			hidden_info[queue]["wins"] = ranked_queue["wins"]
+			hidden_info[queue]["losses"] = ranked_queue["losses"]
+			hidden_info[queue]["mmr"] = mmr_data[ranked_queue["tier"]][ranked_queue["rank"]] + round(60.0*(ranked_queue["leaguePoints"]/100.0))
 
 	# Insert new user into database
 	account_data["mmrData"] = hidden_info
