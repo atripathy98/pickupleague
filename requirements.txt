@@ -1,2 +1,3 @@
 discord.py==0.16.12
 asyncio==3.4.3
+firebase-admin==2.13.0
